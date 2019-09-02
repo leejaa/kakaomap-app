@@ -1,0 +1,48 @@
+{
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "web": "expo start --web",
+    "start": "react-native start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^10.0.5",
+    "babel-plugin-transform-react-jsx-source": "^6.22.0",
+    "expo": "^34.0.3",
+    "expo-font": "^6.0.1",
+    "expo-location": "^6.0.0",
+    "moment": "^2.24.0",
+    "native-base": "^2.13.5",
+    "react": "16.8.3",
+    "react-apollo": "^3.0.1",
+    "react-apollo-hooks": "^0.5.0",
+    "react-dom": "^16.8.6",
+    "react-native": "0.59.10",
+    "react-native-elements": "^1.1.0",
+    "react-native-gesture-handler": "~1.3.0",
+    "react-native-maps": "^0.25.0",
+    "react-native-reanimated": "~1.1.0",
+    "react-native-unimodules": "~0.5.2",
+    "react-native-web": "^0.11.4",
+    "react-navigation": "^3.12.1",
+    "styled-components": "^4.3.2",
+    "typed-native-base": "^0.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@types/react": "^16.8.23",
+    "@types/react-native": "^0.57.65",
+    "@types/react-native-elements": "^0.18.0",
+    "@types/react-native-maps": "^0.24.0",
+    "@types/react-navigation": "^3.0.8",
+    "@types/styled-components": "^4.1.18",
+    "babel-preset-expo": "^5.2.0",
+    "jest-expo": "^34.0.0",
+    "typescript": "^3.4.5"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "private": true
+}

@@ -1,0 +1,40 @@
+import React, { useState, useEffect } from "react";
+import { AppLoading } from "expo";
+import { Ionicons } from '@expo/vector-icons';
+import * as Font from 'expo-font';
+import NavController from "./src/navigation/NavController";
+import { AsyncStorage } from "react-native";
+
+export default function App() {
+
+  const [loading, setLoading] = useState(false);
+
+  const preload = async() => {
+
+    setLoading(true);
+
+    try {
+      await Font.loadAsync({
+        'Do-Hyeon': require('./assets/fonts/DoHyeon-Regular.ttf'),
+        Roboto: require('native-base/Fonts/Roboto.ttf'),
+        Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+        ...Ionicons.font,
+      });
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    preload();
+  }, []);
+
+  return loading ? (
+      <AppLoading/>
+    ) : (
+      <NavController/>
+  );
+}
+
