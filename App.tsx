@@ -1,13 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { AppLoading } from "expo";
 import { Ionicons } from '@expo/vector-icons';
 import * as Font from 'expo-font';
 import NavController from "./src/navigation/NavController";
-import { AsyncStorage } from "react-native";
+import { dataContext } from "./useContext";
 
 export default function App() {
 
   const [loading, setLoading] = useState(false);
+
+  const [data, setData] = useState<any>({
+    startPlace: "출발지",
+    endPlace: ""
+  });
+
+  const value = useMemo(() => ({ data, setData }), [data, setData]);
 
   const preload = async() => {
 
@@ -34,7 +41,9 @@ export default function App() {
   return loading ? (
       <AppLoading/>
     ) : (
-      <NavController/>
+      <dataContext.Provider value={value as any}>
+          <NavController/>
+      </dataContext.Provider>
   );
 }
 
