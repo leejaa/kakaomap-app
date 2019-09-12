@@ -11,7 +11,8 @@ export default function App() {
 
   const [data, setData] = useState<any>({
     startPlace: "출발지",
-    endPlace: ""
+    endPlace: "",
+    autoAddress: []
   });
 
   const value = useMemo(() => ({ data, setData }), [data, setData]);

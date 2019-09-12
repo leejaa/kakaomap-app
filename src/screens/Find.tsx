@@ -64,7 +64,8 @@ export default ({navigation} : any) => {
                 </Item>
                 <Item>
                 <Ionicons name="md-radio-button-on" size={15} color="red"/>
-                    <Input placeholder='도착지 검색' style={{marginLeft: 10}} onFocus={() => navigation.navigate("Find2", {action: "endPlace", title: "도착지"})}/>
+                    <Input placeholder='도착지 검색' style={{marginLeft: 10}} onFocus={() => navigation.navigate("Find2", {action: "endPlace", title: "도착지"})} 
+                        value={data.endPlace}/>
                 </Item>
                 {
                     data.endPlace !== "" ? (

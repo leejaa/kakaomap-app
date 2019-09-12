@@ -41,3 +41,15 @@ export const reverseGeoCode = async (lat: number, lng: number) => {
     return false;
   }
 };
+
+
+export const autoCompleteAddress = async(event : any) => {
+
+  const URL = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${event}&types=geocode&language=ko&key=${MAP_KEY}`;
+
+  const {data : predictions} = await axios(URL);
+
+  return predictions;
+
+};
+

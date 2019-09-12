@@ -2,14 +2,14 @@ import React from "react";
 import {  View } from "react-native";
 import { Avatar } from 'react-native-elements';
 import { Ionicons } from "@expo/vector-icons";
-import { Input } from 'native-base';
 import {
     createBottomTabNavigator,
     createStackNavigator
   } from "react-navigation";
 import Home from "../screens/Home";
 import Find from "../screens/Find";
-import Find2, { findEndPlace } from "../screens/Find2";
+import Find2 from "../screens/Find2";
+import Input from "../components/Input";
 
 
 
@@ -37,7 +37,7 @@ const stackFactory = (initialRoute: () => JSX.Element, customConfig: { headerRig
                 screen: Find2,
                 navigationOptions: ({navigation} : any) => {
                     return {
-                        headerTitle : <Input placeholder="도착지 검색" onChangeText={findEndPlace}/>
+                        headerTitle : <Input/>
                     }
                 }
             }

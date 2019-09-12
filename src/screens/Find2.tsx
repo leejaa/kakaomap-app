@@ -1,27 +1,46 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useCallback } from "react";
 import { Container, Header, Content, Form, Item, Input, Label } from 'native-base';
+import { ListItem } from 'react-native-elements'
+import axios from "axios";
+import { dataContext } from "../../useContext";
+import { MAP_KEY } from "../../env";
 
-export const findEndPlace = async(event : any) => {
-    console.log(event);
-}
 
 
 export default ({navigation} : any) => {
 
+  const { data, setData} : any = useContext(dataContext);
+
+  console.log(JSON.stringify(data));
+
+  const onPress = async(description : any) => {
+    setData({
+      ...data,
+      endPlace: description
+    });
+
+    navigation.navigate("Find");
+  }
+
     return (
         <Container>
-          <Content>
-            <Form>
-              <Item fixedLabel>
-                <Label>사용자</Label>
-                <Input />
-              </Item>
-              <Item fixedLabel last>
-                <Label>비밀번호</Label>
-                <Input />
-              </Item>
-            </Form>
-          </Content>
+          {
+            data.autoAddress.predictions ? (
+              data.autoAddress.predictions.map(
+                (i : any)  => (
+                <ListItem
+                  key={i.id}
+                  title={i.description}
+                  bottomDivider
+                  onPress={() => onPress(i.description)}
+                />
+                )
+              )
+            ) : (
+              null
+            )
+          }
+          
         </Container>
       );
 }
